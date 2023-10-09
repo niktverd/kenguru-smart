@@ -1,0 +1,5 @@
+{
+    "*.{ts,tsx}": ["npm run lint:eslint", "git add --force"],
+    "*.css": ["npm run lint:stylelint", "git add --force"],
+    "*.json": ["prettier --write", "git add --force"]
+}

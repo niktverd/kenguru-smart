@@ -1,0 +1,9 @@
+.env
+README.md
+**/*.test.tsx
+.eslintignore
+.editorconfig
+.eslintrc
+.nvmrc
+.stylelintrc.json
+node_modules

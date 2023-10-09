@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="5" failures="0" errors="0" time="0.264">
+  <testsuite name="The clamp function clamps a value between an upper and lower bound." errors="0" failures="0" skipped="0" timestamp="2021-08-25T19:54:31" time="0.217" tests="5">
+    <testcase classname="The clamp function clamps a value between an upper and lower bound. Number 0 is not in range [1, 3]. Should be min value (1)" name="The clamp function clamps a value between an upper and lower bound. Number 0 is not in range [1, 3]. Should be min value (1)" time="0.002">
+    </testcase>
+    <testcase classname="The clamp function clamps a value between an upper and lower bound. Number 1 is in range [1, 3]. Should be selected value (1)" name="The clamp function clamps a value between an upper and lower bound. Number 1 is in range [1, 3]. Should be selected value (1)" time="0">
+    </testcase>
+    <testcase classname="The clamp function clamps a value between an upper and lower bound. Number 2 is in range [1, 3]. Should be selected value (2)" name="The clamp function clamps a value between an upper and lower bound. Number 2 is in range [1, 3]. Should be selected value (2)" time="0">
+    </testcase>
+    <testcase classname="The clamp function clamps a value between an upper and lower bound. Number 3 is in range [1, 3]. Should be selected value (3)" name="The clamp function clamps a value between an upper and lower bound. Number 3 is in range [1, 3]. Should be selected value (3)" time="0.001">
+    </testcase>
+    <testcase classname="The clamp function clamps a value between an upper and lower bound. Number 4 is in range [1, 3]. Should be max value (3)" name="The clamp function clamps a value between an upper and lower bound. Number 4 is in range [1, 3]. Should be max value (3)" time="0">
+    </testcase>
+  </testsuite>
+</testsuites>

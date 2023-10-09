@@ -1,0 +1,19 @@
+{
+    "extends": ["stylelint-config-standard", "stylelint-config-css-modules", "stylelint-prettier/recommended"],
+    "plugins": ["stylelint-selector-no-empty"],
+    "rules": {
+        "plugin/stylelint-selector-no-empty": true,
+        "property-no-unknown": [
+            true,
+            {
+                "ignoreProperties": ["timeout", "composes"]
+            }
+        ],
+        "value-keyword-case": [
+            "lower",
+            {
+                "ignoreProperties": "composes"
+            }
+        ]
+    }
+}

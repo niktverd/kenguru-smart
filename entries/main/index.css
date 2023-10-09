@@ -1,0 +1,20 @@
+.root,
+body,
+html {
+    height: 100%;
+    margin: 0;
+}
+
+:root {
+    --header-height: 60px;
+    --aside-width: 240px;
+    --widgets-sidebar-width: 304px;
+    --widgets-sidebar-width-collapsed: 64px;
+    --spacing-unit: 4px;
+    --liza-theme-accent-color: #6086bf;
+    --liza-theme-accent-color-rgb: 96, 134, 191;
+    --liza-theme-accent-text-color: #fff;
+    --liza-theme-accent-text-color-rgb: 255, 255, 255;
+    --liza-theme-accent-color-hover: #4c76b7;
+    --liza-theme-accent-color-active: #4269a4;
+}

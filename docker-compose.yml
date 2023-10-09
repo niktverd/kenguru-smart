@@ -1,0 +1,24 @@
+version: '3.4'
+services:
+  app:
+    image: "${IMAGE}"
+    environment:
+      - HTTP_PORT=$HTTP_PORT
+      - HTTPS_PORT=$HTTPS_PORT
+    ports:
+      - "443:443"
+      - "80:80"
+    deploy:
+      replicas: 3
+      mode: replicated
+      update_config:
+        parallelism: 1
+        delay: 10s
+        order: start-first
+        failure_action: rollback
+        monitor: 1m
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+    #   placement:
+    #     constraints: [node.role == manager]

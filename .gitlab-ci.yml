@@ -1,0 +1,51 @@
+stages:
+    - build
+    - lint
+    - test
+    - deploy
+
+variables:
+    IMAGE: '${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHORT_SHA}'
+
+build_image:
+    image: docker:19.03.13
+    stage: build
+    before_script:
+        - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    script:
+        - docker build -f Dockerfile -t ${IMAGE} .
+        - docker push ${IMAGE}
+    rules:
+        - if: $CI_COMMIT_BRANCH
+          when: always
+          allow_failure: false
+
+deploy-image:
+    image: docker:19.03.1
+    stage: deploy
+    services:
+        - docker:19.03.1-dind
+    variables:
+        HTTPS_PORT: 443
+        HTTP_PORT: 80
+        DOCKER_HOST: $DEPLOY_HOST
+    before_script:
+        - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    script:
+        - env IMAGE="${IMAGE}" HTTPS_PORT="${HTTPS_PORT}" HTTP_PORT="${HTTP_PORT}" docker stack deploy --with-registry-auth -c ./docker-compose.yml --prune app
+    environment:
+        name: dev
+        url: https://teamleet.ru
+    when: always
+    only:
+        - dev
+
+unit_tests:
+    stage: test
+    script:
+        - 'npm run test:unit:ci'
+    artifacts:
+        when: always
+        reports:
+            junit:
+                - junit.xml
